@@ -46,5 +46,52 @@ class Solution:
                 else:
                     continue
 ----------------------------------------------------------------
+Sorted Array Solution:
+Tc = O(n)
+Sc = O(1)
 
+def pair_sum_sorted_array(numbers, target):
+    i=0
+    j=len(numbers)-1
+    while i<j:
+        if numbers[i]+numbers[j]==target:
+            return [i,j]
+        elif numbers[i]+numbers[j]>target:
+            j-=1
+        elif numbers[i]+numbers[j]<target:
+            i+=1
+        else:
+            continue
+    return [-1,-1]
+-----------------------------------------------------------------
+Sorted Array Solution:
+Tc=O(n)
+Sc=O(n)
+    dic={}
+    dic1={}
+    for i,n in enumerate(numbers):
+        dic1[n]=i
+        if n in dic:
+            dic[n]+=1
+        else:
+            dic[n]=1
+    for i in range(len(numbers)):
+        if (target-numbers[i]) in dic:
+            if i!=dic1[target-numbers[i]]:
+                return [i,dic1[target-numbers[i]]]
+        else:
+            continue
+    return[-1,-1]
+
+---------------------------------------------------------------
+Tc=O(n)
+Sc=O(n)
+    dic1={}
+    for i,n in enumerate(numbers):
+        dic1[n]=i
+
+    for i,n in enumerate(numbers):
+        if (target-n) in dic1 and i!=dic1[target-n]:
+            return [i,dic1[target-n]]
+    return[-1,-1]
 
