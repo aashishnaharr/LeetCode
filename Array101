@@ -1,0 +1,43 @@
+T(n) = O(nxm)
+def findNumbers(self, nums: List[int]) -> int:
+        c=0
+        for x in nums:
+            if len(str(x))%2==0:
+                c+=1
+        return c
+
+-----------------------------------------------
+T(n) = O(n)
+S(n) = O(1)
+
+    def findNumbers(self, nums: List[int]) -> int:
+        c=0
+        for x in nums:
+            if x//10==0:
+                continue
+            elif x//100==0:
+                c+=1
+            elif x//1000==0:
+                continue
+            elif x//10000==0:
+                c+=1
+            elif x//100000==0:
+                continue
+            elif x//1000000==0:
+                c+=1
+            else:
+                continue
+        return c
+
+-------------------------------------------
+
+    def findNumbers(self, nums: List[int]) -> int:
+        c,e = 0,0
+        for x in nums:
+            c=0
+            while x>=1:
+                x/=10
+                c+=1
+            if c%2==0:
+                e+=1
+        return e
