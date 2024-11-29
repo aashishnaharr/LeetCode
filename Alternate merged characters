@@ -1,0 +1,22 @@
+def mergeAlternately(self, word1: str, word2: str) -> str:
+        merged=[]
+        c=0
+        word1=list(word1)
+        word2=list(word2)
+        if len(word1)>=len(word2):
+            l=len(word2)
+        else:
+            l=len(word1)
+        for i in range(l):
+            merged.append(word1[i])
+            merged.append(word2[i])
+            c+=1
+        if len(word1)==len(word2):
+            return ''.join(merged)
+        elif len(word1)>len(word2):
+            for i in range(c,len(word1)):
+                merged.append(word1[i])
+        else:
+            for i in range(c,len(word2)):
+                merged.append(word2[i])
+        return ''.join(merged)
